@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"sort"
-	"strconv"
 )
 
 const separator = string(os.PathSeparator)
@@ -57,7 +56,7 @@ func tree(w io.Writer, path string, showFiles bool, padding string) error {
 			if file.Size() == 0 {
 				fileSize = "(empty)"
 			} else {
-				fileSize = "(" + strconv.FormatInt(file.Size(), 10) + "b)"
+				fileSize = "(" + fmt.Sprintf("%d", file.Size()) + "b)"
 			}
 
 			if count == listLength {
